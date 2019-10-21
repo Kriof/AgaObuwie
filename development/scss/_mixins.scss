@@ -1,0 +1,20 @@
+@-webkit-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; display: none; }
+    100% { opacity: 1; }
+  }
+  @-moz-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-o-keyframes KEYFRAME-NAME {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes showPicture {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes hidePicture {
+    0%   { opacity: 1;  display: none;}
+    100% { opacity: 0;  display: block;}
+  }

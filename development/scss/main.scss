@@ -1,0 +1,303 @@
+@import './colors';
+@import './mixins';
+@import './variables';
+
+
+.navbar{
+    width:100%;
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+    .nav-item-img {
+
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        max-width: 30px;
+        max-height: 30px;
+        margin-right: 10%;
+        img {
+            cursor: pointer;
+            max-width:30px;
+            max-height:30px;
+            margin-left: 10px;
+            
+        }
+    }
+}
+#welcome-page {
+    .carousel-item-1 {
+        .home-slider {
+            color: #932A2E;
+            top: 27%;
+            left: 78%;
+        }
+        .home-slider:hover {
+            color: darken( #932A2E, 10%);
+        }
+    }
+
+    .carousel-item-2 {
+        .home-slider {
+     
+            top: 48%;
+            left: 31%;
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+        .home-slider:hover {
+            color: lighten( white, 10%);
+        }
+    }
+
+    .carousel-item-3 {
+        .home-slider {
+            color: darken( white,10%);
+            top: 27%;
+            left: 60%;
+        }
+        .home-slider:hover {
+            color: lighten( white, 10%);
+        }
+    }
+    .carousel-item-4 {
+        .home-slider {
+            color: darken( white,10%);
+            top: 10%;
+            left: 50%;
+        }
+        .home-slider:hover {
+            color: lighten( white, 10%);
+        }
+    }
+
+    .home-slider {
+        position: absolute;
+        color: white;
+        font-size: 1.2em;
+        top: 40%;
+        left: 50%;
+    }
+}
+
+.section-title {
+    color: #2d2d2d;
+    text-align: center;
+    margin: 5vh auto 70px;
+    font-weight: 700;
+    position: relative;
+    width: 90%;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    width: 250px;
+    height: 1px;
+    border-top: 2px solid #000;
+    left: 50%;
+    margin-left: -125px;
+}
+
+section:not(:first) {
+    height: 100vh;
+    margin: 1em 8em;
+}
+
+.section-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10%;
+
+    .section-body-about {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    p {
+        text-align: inherit;
+        margin: 0 10%;
+    }
+}
+
+#about-us {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+    background: linear-gradient(173deg, white 70%, black 71%);
+
+    .section-title {
+        width: 100%;
+    }
+
+    // .section-body {
+    //     position: relative;
+    //     bottom: 20%;
+    // }
+
+    .section-body-about {
+        flex: 1;
+    }
+    .collection-title {
+        cursor: pointer;
+        color: white;
+        text-align: end;
+        padding-right: 15%;
+        padding-top: 5%;
+        h2:hover {
+            color: darken(white, 30%);
+            font-size:2.1em;
+
+        }
+    }
+}
+
+#store-outlet {
+    height: 100vh;
+    background: linear-gradient(366deg, white 69%, black 71%);
+    display: flex;
+    
+    .section-body{
+        flex-wrap: wrap;
+        position: absolute;
+        @for $i from 0 through 6 {
+            &.summer > .gallery:nth-of-type(#{$i}) {
+                background: url("../images/summer/#{463 +$i}-home_default.jpg");
+                background-size: cover;
+                background-position-y: -59px;
+            }
+            &.autumn > .gallery:nth-of-type(#{$i}) {
+                background: url("../images/autumn/#{408 +$i}-home_default.jpg");
+                background-size: cover;
+                background-position-y: -59px;
+            }
+            &.winter > .gallery:nth-of-type(#{$i}) {
+                background: url("../images/winter/#{422 +$i}-home_default.jpg");
+                background-size: cover;
+                background-position-y: -59px;
+            }
+            &.spring > .gallery:nth-of-type(#{$i}) {
+                background: url("../images/spring/#{440 +$i}-home_default.jpg");
+                background-size: cover;
+                background-position-y: -59px;
+            }
+            
+        }
+        .gallery {
+            -webkit-animation-duration: 1s;
+            animation-duration: 2s;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+    }
+    @for $i from 0 through 4 {
+        .section-body:nth-of-type(#{$i}){
+            z-index: $i;
+        }
+    }
+    .gallery {
+        background: url(http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg);
+        background-size: cover;
+        background-position-y: -59px;
+        min-width: 350px;
+        height: 235px;
+        margin: 3% 0;
+  
+    }
+    align-items: center;
+    justify-content: space-between;
+    img {
+        max-width: 350px;
+    }
+}
+// #store-outlet::after {
+//     content: '';
+//     height: 100vh;
+//     background: linear-gradient(366deg, white 69%, black 71%);
+// }
+
+
+#contact {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+
+    .section-title:after {
+        top: 1.5em;
+        display: table-cell;
+        width: 111%;
+        left: 0;
+        margin-left: 0;
+    }
+
+    .section-body {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .map {
+        margin: 0 8%;
+    }
+
+    .section-body-about {
+        justify-content: center;
+        align-items: center;
+        margin: 0 10%;
+    }
+
+    p,
+    h1 {
+        white-space: pre;
+        text-align: justify;
+        margin-left: 0px;
+    }
+
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+        min-width: 400px;
+        margin: 0 10%;
+    }
+}
+
+// #countries {
+//     justify-content: center;
+//     align-items: center;
+
+//     .section-body{
+//         background: url("../images/map.png") no-repeat;
+//         background-position: center center;
+//         background-size: cover;
+//         height:100vh;
+//         width: 70%;
+//         margin: 3% 3%;
+//     }
+
+
+//         display: flex;
+//         flex-wrap: wrap;
+//         height: auto;
+
+//     .flag {
+//         max-width: 200px;
+//         max-height: 200px;
+
+//         flex: 1 0 26%;
+
+
+//     }
+// }
