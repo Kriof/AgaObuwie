@@ -80,7 +80,7 @@
         .home-slider {
             color: darken(white, 10%);
             top: 27%;
-            left: 60%;
+            left: 58%;
         }
 
         .home-slider:hover {
@@ -146,8 +146,9 @@ section:not(:first) {
     }
 
     p {
-        text-align: inherit;
+        
         margin: 0 10%;
+        text-align: justify;
     }
 }
 
