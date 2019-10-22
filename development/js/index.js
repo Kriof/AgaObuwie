@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
             language: 'pl',
             aboutUs: ['O nas', 'About us'],
             offer: ['Oferta', 'Offer'],
+            summer: ["Lato", "Summer"],
+            autumn: ["Jesień", "Autumn"],
+            winter: ["Zima", "Winter"],
+            spring: ["Wiosna", "Spring"],
+            elegant: ["Eleganckie", "Elegant"],
+            designed: ["Stylowe", "Designed"],
+            comfortable: ["Komfortowe", "Comfortable"],
+            convenient: ["Wygodne", "Convenient"],
             storeOutlet: ['Sklep Outlet', 'Outlet Store'],
             address: ['Informacje kontakowe', 'Contact Info'],
             cooperation: [`WSPÓŁPRACA, dzięki której naszymi głównymi odbiorcami są hurtownie, sieci handlowe oraz uznane na świecie marki obuwnicze.
@@ -54,10 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init();
     navigation();
     gallery();
-
+    
 
     function gallery() {
-      
         var galleryBtns = $('#about-us .collection-title.section-title span');
         var seasons = ["summer", "autumn", "winter", "spring"];
 
@@ -66,9 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
         seasons["winter"] = storeOutlet.find('.winter');
         seasons["spring"] = storeOutlet.find('.spring');
         galleryBtns.on('click', event =>{
-            console.log(event);
             var season = event.target.parentElement.className.replace('Btn','');
-            
+            for( let i = 0; i< galleryBtns.length; i++) {
+                galleryBtns[i].children[0].classList.remove('season-active');
+            }
+            event.target.className += "season-active";
+
             switch(season) {
                 case "summer" :
                 seasons["summer"].find('.gallery').css('opacity','1');
@@ -96,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             }
         });
-
     }
     function initMap() {
         // The location of Uluru
