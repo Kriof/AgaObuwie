@@ -38,6 +38,9 @@
 }
 
 #welcome-page {
+    #carouselIndicators {
+        width: 80%;
+    }
     .carousel-item-1 {
         .home-slider {
             color: #932A2E;
@@ -138,15 +141,20 @@ section:not(:first) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 10%;
+
 
     .section-body-about {
         flex-grow: 1;
         flex-basis: 0;
     }
 
+    @media all and (max-width:800px) {
+        p {
+            text-align: center;
+        }
+    }
+
     p {
-        
         margin: 0 10%;
         text-align: justify;
     }
@@ -349,4 +357,17 @@ section:not(:first) {
     }
 
 
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row:before,
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }

@@ -11,10 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
             autumn: ["Jesień", "Autumn"],
             winter: ["Zima", "Winter"],
             spring: ["Wiosna", "Spring"],
-            elegant: ["Eleganckie", "Elegant"],
-            designed: ["Stylowe", "Designed"],
-            comfortable: ["Komfortowe", "Comfortable"],
-            convenient: ["Wygodne", "Convenient"],
             storeOutlet: ['Sklep Outlet', 'Outlet Store'],
             address: ['Informacje kontakowe', 'Contact Info'],
             cooperation: [`WSPÓŁPRACA, dzięki której naszymi głównymi odbiorcami są hurtownie, sieci handlowe oraz uznane na świecie marki obuwnicze.

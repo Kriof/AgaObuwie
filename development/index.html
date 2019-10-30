@@ -67,137 +67,136 @@
         </header>
 
         <section id="welcome-page">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3" class="active"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselIndicators" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item carousel-item-1 active">
                         <div data-aos="flip-right" class="home-slider">
-                            <h1> {{ translate(elegant)}}</h1>
                         </div>
                         <img class="d-block w-100" src="images/LandingImage.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item carousel-item-2">
                         <div class="home-slider">
-                            <h1> {{ translate(designed) }}</h1>
                         </div>
                         <img class="d-block w-100" src="images/LandingImage2.jpg" alt="Second slide">
                     </div>
                     <div data-aos="flip-right" class="carousel-item carousel-item-3">
                         <div class="home-slider">
-                            <h1> {{ translate(comfortable)}}</h1>
                         </div>
                         <img class="d-block w-100" src="images/LandingImage3.jpg" alt="Third slide">
                     </div>
                     <div class="carousel-item carousel-item-4">
                         <div data-aos="flip-left" class="home-slider">
-                            <h1> {{ translate(convenient)}}</h1>
                         </div>
                         <img class="d-block w-100" src="images/LandingImage4.jpg" alt="Fourth slide">
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
         </section>
-        <section id="about-us">
-            <div data-aos="fade-in" class="section-title">
-                <h1>{{ translate(aboutUs)}}</h1>
-            </div>
-            <div class="section-body">
-                <div data-aos="fade-in" data-aos-delay="50" data-aos-duration="1000" class="section-body-about">
-
-                    <p>{{ translate(cooperation) }}</p>
+        <section class="container">
+            <section id="about-us">
+                <div data-aos="fade-in" class="section-title">
+                    <h1>{{ translate(aboutUs)}}</h1>
                 </div>
-                <div data-aos="fade-in" data-aos-delay="250" data-aos-duration="1000" class="section-body-about">
-
-                    <p>{{ translate(history) }}</p>
-                </div>
-                <div data-aos="fade-in" data-aos-delay="450" data-aos-duration="1000" class="section-body-about">
-                    <p>{{ translate(design) }}</p>
-                </div>
-            </div>
-
-            <div class="collection-title section-title">
-                <span class="summerBtn">
-                    <h2>{{ translate(summer) }}</h2>
-                </span>
-                <span class="autumnBtn">
-                    <h2>{{ translate(autumn) }}</h2>
-                </span>
-                <span class="winterBtn">
-                    <h2>{{ translate(winter) }}</h2>
-                </span>
-                <span class="springBtn">
-                    <h2 class="season-active" >{{ translate(spring) }}</h2>
-                </span>
-            </div>
-        </section>
-        <section id="store-outlet">
-            <div class="section-body summer">
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
-            </div>
-            <div class="section-body autumn">
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
-            </div>
-            <div class="section-body winter">
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-            </div>
-            <div class="section-body spring">
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-                <div class="gallery"></div>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="section-body">
-                <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-                    <div class="section-body-about">
-                        <h1 class="section-title">{{ translate(address)}}</h1>
-                        <p data-aos="fade-in" data-aos-delay="600" data-aos-duration="1000">Brody 687</p>
-                        <p data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">34-130 Kalwaria Zebrzydowska
-                        </p>
-                        <p data-aos="fade-in" data-aos-delay="800" data-aos-duration="1000"><a href=""
-                                onclick="window.open('mailto:aga1aga@vp.pl');">aga1aga@vp.pl</a></p>
-                        <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="1000">tel/fax: + 48 33 876 48 88
-                        </p>
+                <div class="section-body">
+                    <div data-aos="fade-in" data-aos-delay="50" data-aos-duration="1000" class="section-body-about">
+    
+                        <p>{{ translate(cooperation) }}</p>
+                    </div>
+                    <div data-aos="fade-in" data-aos-delay="250" data-aos-duration="1000" class="section-body-about">
+    
+                        <p>{{ translate(history) }}</p>
+                    </div>
+                    <div data-aos="fade-in" data-aos-delay="450" data-aos-duration="1000" class="section-body-about">
+                        <p>{{ translate(design) }}</p>
                     </div>
                 </div>
-                <div class="map" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                    <div id="map"></div>
+    
+                <div class="collection-title section-title">
+                    <span class="summerBtn">
+                        <h2>{{ translate(summer) }}</h2>
+                    </span>
+                    <span class="autumnBtn">
+                        <h2>{{ translate(autumn) }}</h2>
+                    </span>
+                    <span class="winterBtn">
+                        <h2>{{ translate(winter) }}</h2>
+                    </span>
+                    <span class="springBtn">
+                        <h2 class="season-active" >{{ translate(spring) }}</h2>
+                    </span>
                 </div>
-            </div>
+            </section>
+            <section id="store-outlet">
+                <div class="section-body summer">
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
+                </div>
+                <div class="section-body autumn">
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
+                </div>
+                <div class="section-body winter">
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                </div>
+                <div class="section-body spring">
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                    <div class="gallery"></div>
+                </div>
+            </section>
+            <section id="contact">
+                <div class="section-body">
+                    <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                        <div class="section-body-about">
+                            <h1 class="section-title">{{ translate(address)}}</h1>
+                            <p data-aos="fade-in" data-aos-delay="600" data-aos-duration="1000">Brody 687</p>
+                            <p data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">34-130 Kalwaria Zebrzydowska
+                            </p>
+                            <p data-aos="fade-in" data-aos-delay="800" data-aos-duration="1000"><a href=""
+                                    onclick="window.open('mailto:aga1aga@vp.pl');">aga1aga@vp.pl</a></p>
+                            <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="1000">tel/fax: + 48 33 876 48 88
+                            </p>
+                        </div>
+                    </div>
+                    <div class="map" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </section>
         </section>
+
         <footer>
 
         </footer>
