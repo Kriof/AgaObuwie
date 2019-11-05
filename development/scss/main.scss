@@ -2,14 +2,28 @@
 @import './mixins';
 @import './variables';
 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
 
 .navbar {
     width: 100%;
-
-    .logo-aga {
-        height: 45px;
-        margin-right: 10px;
-    }
 
     .navbar-nav {
         display: flex;
@@ -38,9 +52,15 @@
 }
 
 #welcome-page {
+    background: url("../images/TitleImg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: fixed;
     #carouselIndicators {
         width: 80%;
     }
+
     .carousel-item-1 {
         .home-slider {
             color: #932A2E;
@@ -119,6 +139,7 @@
     font-weight: 700;
     position: relative;
     width: 90%;
+    transform: scale(1.2);
 }
 
 .section-title:after {
@@ -160,6 +181,25 @@ section:not(:first) {
     }
 }
 
+.logo-aga {
+    max-width: 600px;
+    display: block;
+    margin: auto auto;
+    transform: scale(1.3);
+
+}
+#agaLogo {
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+@media all and (max-width:1200px) {
+    #agaLogo {
+        height: auto;
+        width: 100%;
+    }
+}
 #about-us {
 
     min-height: -webkit-fill-available;
@@ -168,7 +208,6 @@ section:not(:first) {
     align-items: center;
     justify-content: center;
     padding-bottom: 80px;
-    background: linear-gradient(173deg, white 70%, black 71%);
 
     @media all and (max-width:800px) {
         .section-body {
@@ -183,88 +222,101 @@ section:not(:first) {
             margin: 5% 10%;
         }
     }
-
     .section-title {
         width: 100%;
     }
+}
 
-    .section-body-about {
-        flex: 1;
-    }
-
-    .season-active {
-        font-size: 2.3em;
-        text-decoration: underline;
-    }
-
+#store-outlet {
     .collection-title {
         cursor: pointer;
-        color: white;
+        color: black;
         text-align: end;
-        padding-right: 15%;
         top: 80px;
         margin: 0;
-
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 50px;
+        width: 100%;
+        padding-bottom: 10%;
         h2:hover {
             color: darken(white, 30%);
 
         }
     }
-}
-
-#store-outlet {
-
-    min-height: -webkit-fill-available;
-    background: linear-gradient(366deg, white 69%, black 71%);
-    display: flex;
-
-    @media all and (max-width:800px) {
-        & {
-            height: 1600px;
-        }
-
-        .section-body {
-            flex-direction: column;
-            margin: 0 25%;
-        }
-
-        .gallery {
-            overflow: hidden;
-            height: 190px;
-            max-width: 50%;
-        }
+    .season-active {
+        font-size: 2.3em;
+        text-decoration: underline;
+    }
+    .fas {
+        font-size: 35px;
     }
 
+    min-height: -webkit-fill-available;
+    //background: linear-gradient(366deg, white 69%, black 71%);
+    display: flex;
+    height: 150vh;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
     .section-body {
+        display: flex;
         flex-wrap: wrap;
-        position: absolute;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
 
-        @for $i from 0 through 6 {
-            &.summer>.gallery:nth-of-type(#{$i}) {
-                background: url("../images/summer/#{463 +$i}-home_default.jpg");
-                background-size: cover;
-                background-position-y: -59px;
-            }
-
-            &.autumn>.gallery:nth-of-type(#{$i}) {
-                background: url("../images/autumn/#{408 +$i}-home_default.jpg");
-                background-size: cover;
-                background-position-y: -59px;
-            }
-
-            &.winter>.gallery:nth-of-type(#{$i}) {
-                background: url("../images/winter/#{422 +$i}-home_default.jpg");
-                background-size: cover;
-                background-position-y: -59px;
-            }
-
-            &.spring>.gallery:nth-of-type(#{$i}) {
-                background: url("../images/spring/#{440 +$i}-home_default.jpg");
-                background-size: cover;
-                background-position-y: -59px;
-            }
-
+        img {
+            // padding-bottom: $galleryImagePaddingBottom;
+            height: $galleryImageHeight;
         }
+        .gallery-image-wrapper {
+            h4 {
+                text-align: center;
+                padding-bottom:  $galleryImagePaddingBottom;
+            }
+        }
+
+        &.arrows {
+            justify-content: center;
+
+            i {
+                cursor: pointer;
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+        .item {
+            display:block;
+        }
+
+        // @for $i from 0 through 6 {
+        //     &.summer>.gallery:nth-of-type(#{$i}) {
+        //         background: url("../images/summer/#{463 +$i}-home_default.jpg");
+        //         background-size: cover;
+        //         background-position-y: -59px;
+        //     }
+
+        //     &.autumn>.gallery:nth-of-type(#{$i}) {
+        //         background: url("../images/autumn/#{408 +$i}-home_default.jpg");
+        //         background-size: cover;
+        //         background-position-y: -59px;
+        //     }
+
+        //     &.winter>.gallery:nth-of-type(#{$i}) {
+        //         background: url("../images/winter/#{422 +$i}-home_default.jpg");
+        //         background-size: cover;
+        //         background-position-y: -59px;
+        //     }
+
+        //     &.spring>.gallery:nth-of-type(#{$i}) {
+        //         background: url("../images/spring/#{440 +$i}-home_default.jpg");
+        //         background-size: cover;
+        //         background-position-y: -59px;
+        //     }
+        // }
 
         .gallery {
             -webkit-animation-duration: 1s;
@@ -280,21 +332,81 @@ section:not(:first) {
         }
     }
 
-    .gallery {
-        background: url(http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg);
-        background-size: cover;
-        background-position-y: -59px;
-        min-width: 350px;
-        height: 235px;
-        margin: 3% 0;
+    // .gallery {
+    //     background: url(http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg);
+    //     background-size: cover;
+    //     background-position-y: -59px;
 
+    //     margin: 3% 0;
+
+    // }
+    .lightbox {
+        background-color: #001;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0.96;
+        & > .gallery-image-wrapper {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & > img{
+                transform: scale(1.8);
+                &:hover {
+                    transform: scale(1.8);
+                }
+            }
+             & > i{
+                position: absolute;
+                right: 10%;
+                top: 10%;
+                font-size: 40px;
+                cursor: pointer;
+             }
+        }
+    }
+    .gallery-image-wrapper {
+        overflow: hidden;
+        img {
+            max-width: 350px;
+            &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
     }
 
-    align-items: center;
-    justify-content: space-between;
 
-    img {
-        max-width: 350px;
+    @media all and (max-width:800px) {
+        & {
+            height: 7 * ($galleryImageHeight + $galleryImagePaddingBottom);
+
+            >.section-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 6 * ($galleryImageHeight + $galleryImagePaddingBottom);
+            }
+        }
+        .gallery-image-wrapper img {
+            overflow: hidden;
+            height: 190px;
+        }
+        .arrows {
+            position: relative;
+            top: -7%;
+        }
+     
+        // .gallery {
+        //     overflow: hidden;
+        //     height: 190px;
+        //     max-width: 50%;
+        // }
     }
 }
 
@@ -307,7 +419,7 @@ section:not(:first) {
     .section-body {
         flex-direction: row;
         justify-content: space-between;
-        width: 80%;
+        width: 100%;
     }
 
     .map {
@@ -363,6 +475,7 @@ section:not(:first) {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+
 }
 
 .row:before,

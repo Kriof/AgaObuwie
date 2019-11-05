@@ -3,24 +3,25 @@ var sass = require("gulp-sass");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("gulp-autoprefixer");
 var browserSync = require("browser-sync").create();
-
-gulp.task("watch", function(cb) {
+var babel = require('gulp-babel');
+gulp.task("watch", function (cb) {
   gulp.watch("development/scss/**/*.scss", gulp.series("sass"));
   cb();
 });
 
-gulp.task("serve", function(cb) {
+gulp.task("serve", function (cb) {
   browserSync.init({
     server: "./development"
   });
   gulp.watch("development/scss/**/*.scss", gulp.series("sass"));
   gulp.watch("development/*.html").on("change", browserSync.reload);
   gulp.watch("development/js/*.js").on("change", browserSync.reload);
-  cb();
+  // gulp.watch("development/js/*.js", gulp.series("scripts"));
+cb();
 });
 
 // Compile sass into CSS & auto-inject into browsers
-gulp.task("sass", function() {
+gulp.task("sass", function () {
   return gulp
     .src("development/scss/**/*.scss")
     .pipe(sass().on("error", sass.logError))

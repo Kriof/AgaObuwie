@@ -21,9 +21,12 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="http://malsup.github.io/jquery.blockUI.js"></script>
     <script src="./js/index.js"></script>
+
     <link rel="stylesheet" href="./css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700&display=swap" rel="stylesheet">
@@ -36,7 +39,7 @@
     <div id="vue-container">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <img class="logo-aga" src="images/logo_aga.jpg">
+
                 <a class="navbar-brand" href="#">AgaObuwie</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +52,7 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li id="offer-nav" class="nav-item">
-                            <a class="nav-link" href="#">{{ translate(offer)}}</a>
+                            <a class="nav-link" href="#">{{ translate(collectionName)}}</a>
                         </li>
                         <li id="store-outlet-nav" class="nav-item">
                             <a class="nav-link" href="#">{{ translate(storeOutlet)}}</a>
@@ -67,7 +70,7 @@
         </header>
 
         <section id="welcome-page">
-            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+            <!-- <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselIndicators" data-slide-to="3" class="active"></li>
                     <li data-target="#carouselIndicators" data-slide-to="3"></li>
@@ -104,76 +107,106 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
+            </div> -->
         </section>
         <section class="container">
+            <section id="agaLogo">
+                <img class="logo-aga" data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000" src="images/logo_aga.jpg">
+            </section>
+
             <section id="about-us">
-                <div data-aos="fade-in" class="section-title">
-                    <h1>{{ translate(aboutUs)}}</h1>
+
+                <div data-aos="fade-in">
+                    <h1 class="section-title">{{ translate(aboutUs)}}</h1>
                 </div>
                 <div class="section-body">
                     <div data-aos="fade-in" data-aos-delay="50" data-aos-duration="1000" class="section-body-about">
-    
+                        <h3 class="section-title">{{translateByIndex(cooperation,3) }}</h3>
                         <p>{{ translate(cooperation) }}</p>
                     </div>
                     <div data-aos="fade-in" data-aos-delay="250" data-aos-duration="1000" class="section-body-about">
-    
+                        <h3 class="section-title">{{translateByIndex(history,3) }}</h3>
                         <p>{{ translate(history) }}</p>
                     </div>
                     <div data-aos="fade-in" data-aos-delay="450" data-aos-duration="1000" class="section-body-about">
+                        <h3 class="section-title">{{translateByIndex(design,3) }}</h3>
                         <p>{{ translate(design) }}</p>
                     </div>
                 </div>
-    
-                <div class="collection-title section-title">
-                    <span class="summerBtn">
-                        <h2>{{ translate(summer) }}</h2>
-                    </span>
-                    <span class="autumnBtn">
-                        <h2>{{ translate(autumn) }}</h2>
-                    </span>
-                    <span class="winterBtn">
-                        <h2>{{ translate(winter) }}</h2>
-                    </span>
-                    <span class="springBtn">
-                        <h2 class="season-active" >{{ translate(spring) }}</h2>
-                    </span>
-                </div>
+
+
             </section>
             <section id="store-outlet">
-                <div class="section-body summer">
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
+                <div class="collection-title ">
+
+                    <h1 class="section-title" data-aos="flip-up" data-aos-delay="450" data-aos-duration="800">Nasze kolekcje</h1>
+
+                    <span id="autumnWinterBtn" data-aos="flip-up" data-aos-delay="650" data-aos-duration="1000"class="autumnWinterBtn">
+                        <h2>{{ translate(collections.autumnWinter2019) }}</h2>
+                    </span>
+                    <span id="springSummerBtn" data-aos="flip-up" data-aos-delay="650" data-aos-duration="1000" class="springSummerBtn">
+                        <h2>{{ translate(collections.springSummer2018) }}</h2>
+                    </span>
                 </div>
-                <div class="section-body autumn">
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <!-- <img data-fancybox="gallery" src="http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg"> -->
+                <div class="section-body gallery" id="gallery">
+                 
+                    <div class="gallery-image-wrapper" data-aos="fade-right"  data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/7008.1248.JPG" alt="">
+                        <h4>7008.1248</h4>
+                    </div>
+                    <div class="gallery-image-wrapper " data-aos="fade-down"  data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/6442.1186.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper" data-aos="fade-left" data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/6995.1256.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper" data-aos="fade-right" data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/6995.1446.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper" data-aos="fade-up" data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/6995.1482.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper" data-aos="fade-left" data-aos-duration="2000">
+                        <img class="item" src="../images/jesień zima 2019/6995.1483.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+
                 </div>
-                <div class="section-body winter">
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                </div>
-                <div class="section-body spring">
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
-                    <div class="gallery"></div>
+                <!-- <div class="section-body gallery" id="gallery">
+                    <div class="gallery-image-wrapper">
+                        <img class="item" src="../images/jesień zima 2019/7008.1248.JPG" alt="">
+                        <h4>7008.1248</h4>
+                    </div>
+                    <div class="gallery-image-wrapper lightbox">
+                        <img class="item" src="../images/jesień zima 2019/6442.1186.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper">
+                        <img class="item" src="../images/jesień zima 2019/6995.1256.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper">
+                        <img class="item" src="../images/jesień zima 2019/6995.1446.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper">
+                        <img class="item" src="../images/jesień zima 2019/6995.1482.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                    <div class="gallery-image-wrapper">
+                        <img class="item" src="../images/jesień zima 2019/6995.1483.JPG" alt="">
+                        <h4>6442.1186</h4>
+                    </div>
+                </div> -->
+                <div class="section-body arrows">
+                    <i class="fas fa-arrow-left"  data-aos="flip-right" data-aos-delay="1550" data-aos-duration="1000"></i>
+                    <i class="fas fa-arrow-right"  data-aos="flip-left" data-aos-delay="1550" data-aos-duration="1000"></i>
                 </div>
             </section>
             <section id="contact">
@@ -183,10 +216,12 @@
                             <h1 class="section-title">{{ translate(address)}}</h1>
                             <p data-aos="fade-in" data-aos-delay="600" data-aos-duration="1000">Brody 687</p>
                             <p data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">34-130 Kalwaria Zebrzydowska
+                                
                             </p>
                             <p data-aos="fade-in" data-aos-delay="800" data-aos-duration="1000"><a href=""
                                     onclick="window.open('mailto:aga1aga@vp.pl');">aga1aga@vp.pl</a></p>
-                            <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="1000">tel/fax: + 48 33 876 48 88
+                            <p data-aos="fade-in" data-aos-delay="400" data-aos-duration="1000">tel/fax: + 48 33 876 48
+                                88
                             </p>
                         </div>
                     </div>
