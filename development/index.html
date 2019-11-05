@@ -123,15 +123,15 @@
                 </div>
                 <div class="section-body">
                     <div data-aos="fade-in" data-aos-delay="50" data-aos-duration="1000" class="section-body-about">
-                        <h3 class="section-title">{{translateByIndex(cooperation,3) }}</h3>
+                        <h3 class="section-title">{{language == 'pl' ? translateByIndex(cooperation,3) : translateByIndex(cooperation,2) }}</h3>
                         <p>{{ translate(cooperation) }}</p>
                     </div>
                     <div data-aos="fade-in" data-aos-delay="250" data-aos-duration="1000" class="section-body-about">
-                        <h3 class="section-title">{{translateByIndex(history,3) }}</h3>
+                        <h3 class="section-title">{{language == 'pl' ? translateByIndex(history,3) : translateByIndex(history,2) }}</h3>
                         <p>{{ translate(history) }}</p>
                     </div>
                     <div data-aos="fade-in" data-aos-delay="450" data-aos-duration="1000" class="section-body-about">
-                        <h3 class="section-title">{{translateByIndex(design,3) }}</h3>
+                        <h3 class="section-title">{{language == 'pl' ? translateByIndex(design,3) : translateByIndex(design,2) }}</h3>
                         <p>{{ translate(design) }}</p>
                     </div>
                 </div>
@@ -205,8 +205,8 @@
                     </div>
                 </div> -->
                 <div class="section-body arrows">
-                    <i class="fas fa-arrow-left"  data-aos="flip-right" data-aos-delay="1550" data-aos-duration="1000"></i>
-                    <i class="fas fa-arrow-right"  data-aos="flip-left" data-aos-delay="1550" data-aos-duration="1000"></i>
+                    <i class="fas fa-arrow-left"  data-aos="flip-right" data-aos-delay="750" data-aos-duration="1000"></i>
+                    <i class="fas fa-arrow-right"  data-aos="flip-left" data-aos-delay="750" data-aos-duration="1000"></i>
                 </div>
             </section>
             <section id="contact">
@@ -216,7 +216,7 @@
                             <h1 class="section-title">{{ translate(address)}}</h1>
                             <p data-aos="fade-in" data-aos-delay="600" data-aos-duration="1000">Brody 687</p>
                             <p data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">34-130 Kalwaria Zebrzydowska
-                                
+
                             </p>
                             <p data-aos="fade-in" data-aos-delay="800" data-aos-duration="1000"><a href=""
                                     onclick="window.open('mailto:aga1aga@vp.pl');">aga1aga@vp.pl</a></p>

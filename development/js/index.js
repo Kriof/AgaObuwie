@@ -344,7 +344,14 @@ document.addEventListener("DOMContentLoaded", function () {
         gallery.find('.gallery-image-wrapper').each(function () {
             var $this = $(this).find('img')
             $this.fadeOut(10);
-            $this.attr('src', "../images/" + currentGalleryCollection + "/" + galleryImages[i]);
+            $this.attr('src', "../development/images/" + currentGalleryCollection + "/" + galleryImages[i] );
+            
+            // $this.error(function() {
+            //     this.src = "../images/" + currentGalleryCollection + "/" + galleryImages[i] ;
+            // });
+            // $this.error(function() {
+            //     this.src = "..images/" + currentGalleryCollection + "/" + galleryImages[i] ;
+            // });
             $this.fadeIn(500);
             if (galleryImages[i]) {
                 var currentImgName = galleryImages[i].replace('.JPG', '');
