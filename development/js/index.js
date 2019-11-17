@@ -3,7 +3,6 @@ var summerCollectionImagesNames = [
     '6395.45H.1177.JPG',
     '6411.216.1153.1181.JPG',
     '6411.39.12400.JPG',
-    '6411.39.12400.JPG.JPG',
     '6411.48.1178.JPG',
     '6417.1134.1177.JPG',
     '6417.19.1176.JPG',
@@ -62,12 +61,12 @@ var summerCollectionImagesNames = [
     '6671.1537.JPG',
     '6846.1156.JPG',
     '6980.1151.JPG',
-    '7104.272.JPG.JPG',
+    '7104.272.JPG',
     '7114.1153.JPG',
     '7116.1153.JPG',
     '7118.1151.JPG',
     '7118.1155.JPG',
-    '7118.1531.JPG.JPG',
+    '7118.1531.JPG',
 ];
 var winterCollectionImagesNames = [
     '6442.1186.JPG',
@@ -80,7 +79,7 @@ var winterCollectionImagesNames = [
     '6453.1461.JPG',
     '6453.1468.JPG',
     '6459.281D.1230.JPG',
-    '6460.272.1227.1225(2).JPG',
+    '6460.272.1227.1225.JPG',
     '6489.1190.JPG',
     '6489.442.JPG',
     '6492.1196.JPG',
@@ -181,7 +180,7 @@ var winterCollectionImagesNames = [
     '6995.1482.JPG',
     '6995.1483.JPG',
     '6995.19.JPG',
-    '6995.272 (2).JPG',
+    '6995.272.JPG',
     '7008.1248.JPG',
     '7008.1462.JPG',
     '7008.1468.JPG',
@@ -209,8 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
             offer: ['Oferta', 'Offer'],
             collectionName: ["Nasze kolekcje", "The collections"],
             collections: {
-                autumnWinter2019: ["Jesień Zima 2019", "Autumn Winter 2019"],
-                springSummer2018: ["Wiosna Lato 2018", "Spring Summer 2018"]
+                autumnWinter2019: ["Jesień Zima", "Autumn Winter"],
+                springSummer2018: ["Wiosna Lato", "Spring Summer"]
             },
             pageNumber: 1,
             storeOutlet: ['Sklep Outlet', 'Outlet Store'],
@@ -218,9 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
             cooperation: [`Naszymi głównymi odbiorcami są hurtownie, sieci handlowe oraz uznane na świecie marki obuwnicze.
                         Jesteśmy w stanie przygotować obuwie dopasowane do wymagań oraz porzeb naszych klientów.
                         Jesteśmy otwarci na nowe wyzwania oraz proponujemy atrakcyjne warunki współpracy.`,
-                `Our main customers are wholesalers, retail chains and internationally recognized footwear brands.
-                                                 We are able to prepare footwear tailored to the requirements and needs of our customers.
-                                                 We are open to new challenges and we offer attractive terms of cooperation.`,  "Cooperation","WSPÓŁPRACA",
+                `Our main customers are wholesalers, retail chains and internationally recognized footwear brands. We are able to prepare footwear tailored to 
+                the requirements and needs of our customers. We are open to new challenges and we offer attractive terms of cooperation.`,  "Cooperation","Współpraca",
             ],
             history: [`Początki Firmy "AGA" zaczynają się w 1994 roku, gdzie zaczyna się projektowanie oraz produckaj
                         najwyższej jakości obuwia
@@ -228,18 +226,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         innymi pochodzenia Polskiego, Tureckiego, Hiszpańskiego oraz Włoskiego.
                         Nasze obuwie cechuje komfort użytkowania, zróżnicowane wzornictwo ale przede wszystkim wysoka
                         jakość wykonania.`,
-                `The Origin of "AGA" begins in 1994, where design and production begin
-                                         top quality footwear
-                                         women's high-quality leathers. We use the highest quality components from all over Europe between
-                                         other Polish, Turkish, Spanish and Italian origin.
-                                         Our footwear is characterized by comfort of use, diverse designs but above all high
-                                         production quality.`,  "History", "Historia"
+                `The Origin of "AGA" begins in 1994, where design and production begin top quality footwear
+                women's high-quality leathers. We use the highest quality components from all over Europe between
+                other Polish, Turkish, Spanish and Italian origin.
+                Our footwear is characterized by comfort of use, diverse designs but above all high
+                production quality.`,  "History", "Historia"
             ],
             design: [`Solidne wykonanie oraz przystępna cena produktów, pozwoliły zdobyć naszej marce
             uznanie konsumentów na rynku Polskim oraz Europejskim (Węgry, Czechy, Słowacja, Rosja,
             Litwa, Ukraina, Niemcy, Holandia.)`, `Solid workmanship and affordable price of products have allowed us to win our brand
-                         recognition of consumers on the Polish and European market (Hungary, Czech Republic, Slovakia, Russia,
-                         Lithuania, Ukraine, Germany, the Netherlands.)`,
+            recognition of consumers on the Polish and European market (Hungary, Czech Republic, Slovakia, Russia,
+            Lithuania, Ukraine, Germany, the Netherlands.)`,
                 "Design", "Design"
             ],
             contact: ['Kontakt', 'Contact'],
@@ -270,7 +267,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var galleryArrowRight = galleryArrows.find('.fa-arrow-right');
     var springSummerBtn = $('#springSummerBtn');
     var autumnWinterBtn = $('#autumnWinterBtn');
+    var springSummerText = $('.springSummerText');
+    var autumnWinterText = $('.autumnWinterText');
     var galleryArrowLeft = galleryArrows.find('.fa-arrow-left');
+    var summerCollectionSize = 21;
+    var winterCollectionSize = 11;
     init();
 
     function initMap() {
@@ -325,6 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         var currentArray = localStorage.getItem("currentGalleryCollection") === "summer" ? summerCollectionImagesNames : winterCollectionImagesNames;
         changeGallery(currentArray, 1);
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
     }
 
     function getGalleryImageNames(array, page_number) {
@@ -344,14 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
         gallery.find('.gallery-image-wrapper').each(function () {
             var $this = $(this).find('img')
             $this.fadeOut(10);
-            $this.attr('src', "../development/images/" + currentGalleryCollection + "/" + galleryImages[i] );
+            $this.attr('src', "../images/" + currentGalleryCollection + "/" + galleryImages[i] );
             
-            // $this.error(function() {
-            //     this.src = "../images/" + currentGalleryCollection + "/" + galleryImages[i] ;
-            // });
-            // $this.error(function() {
-            //     this.src = "..images/" + currentGalleryCollection + "/" + galleryImages[i] ;
-            // });
             $this.fadeIn(500);
             if (galleryImages[i]) {
                 var currentImgName = galleryImages[i].replace('.JPG', '');
@@ -366,12 +362,12 @@ document.addEventListener("DOMContentLoaded", function () {
         $.unblockUI();
         i = 0;
     };
-
+    
     galleryArrowRight.on('click', function (evt) {
         var pageNumber = localStorage.getItem("pageNumber");
         var isSummerGalleryCollection = localStorage.getItem("currentGalleryCollection") === "summer";
         var currentShoesCollection = isSummerGalleryCollection ? summerCollectionImagesNames : winterCollectionImagesNames;
-        var pageLimitNumber = !isSummerGalleryCollection ? 21 : 12;
+        var pageLimitNumber = !isSummerGalleryCollection ? summerCollectionSize : winterCollectionSize;
 
         pageNumber++;
         if (pageNumber > pageLimitNumber) {
@@ -385,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var isSummerGalleryCollection = localStorage.getItem("currentGalleryCollection") === "summer";
 
         var currentShoesCollection = isSummerGalleryCollection ? summerCollectionImagesNames : winterCollectionImagesNames;;
-        var pageLimitNumber = !isSummerGalleryCollection ? 21 : 12;
+        var pageLimitNumber = !isSummerGalleryCollection ? summerCollectionSize : winterCollectionSize;
         pageNumber--;
         if (pageNumber < 1) {
             pageNumber = pageLimitNumber;
@@ -395,9 +391,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     springSummerBtn.on('click', function (evt) {
         setSummerActiveCollection();
-
+        console.log($(this).attr('id'));
         localStorage.setItem('currentGalleryCollection', 'summer');
         changeGallery(summerCollectionImagesNames, 1);
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
     });
 
     autumnWinterBtn.on('click', function (evt) {
@@ -405,6 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem('currentGalleryCollection', 'winter');
         changeGallery(winterCollectionImagesNames, 1);
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
     });
     gallery.find('.gallery-image-wrapper').each(function () {
         $(this).on('click', function () {
@@ -429,9 +427,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lightbox.css('opacity')
     });
 
-    function toggleLightbox() {
-
-
+    function hideNotActiveCollectionText(collectionType) {
+        if (collectionType === "summer") {
+            springSummerText.css('opacity', 1);
+            autumnWinterText.css('opacity', 0);
+        } else {
+            autumnWinterText.css('opacity', 1);
+            springSummerText.css('opacity', 0);
+        }
     }
 
     function setSummerActiveCollection() {

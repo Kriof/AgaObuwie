@@ -131,6 +131,14 @@ body {
         left: 50%;
     }
 }
+.text-vertical {
+        writing-mode: tb-rl;
+    /* transform: rotate(270deg); */
+    text-orientation: upright;
+    position: absolute;
+    height: fit-content;
+}
+
 
 .section-title {
     color: #2d2d2d;
@@ -168,7 +176,6 @@ section:not(:first) {
         flex-grow: 1;
         flex-basis: 0;
     }
-
     @media all and (max-width:800px) {
         p {
             text-align: center;
@@ -185,19 +192,21 @@ section:not(:first) {
     max-width: 600px;
     display: block;
     margin: auto auto;
+    
     transform: scale(1.3);
 
 }
 #agaLogo {
-    height: 100vh;
+    height: 50vh;
     display: flex;
     align-content: center;
     justify-content: center;
 }
-@media all and (max-width:1200px) {
-    #agaLogo {
-        height: auto;
-        width: 100%;
+@media all and (max-width:600px) {
+    #welcome-page {
+        background: url("../images/welcomePageSmall.jpg");
+        background-position-x: 50%;
+        background-position-y: 50%;
     }
 }
 #about-us {
@@ -213,11 +222,9 @@ section:not(:first) {
         .section-body {
             flex-direction: column;
         }
-
         .map {
             margin: 0 0;
         }
-
         p {
             margin: 5% 10%;
         }
@@ -227,7 +234,14 @@ section:not(:first) {
     }
 }
 
+
 #store-outlet {
+    min-height: -webkit-fill-available;
+    display: flex;
+    height: 150vh;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     .collection-title {
         cursor: pointer;
         color: black;
@@ -239,7 +253,7 @@ section:not(:first) {
         justify-content: space-around;
         margin-top: 50px;
         width: 100%;
-        padding-bottom: 10%;
+        padding-bottom: 70px;
         h2:hover {
             color: darken(white, 30%);
 
@@ -249,18 +263,41 @@ section:not(:first) {
         font-size: 2.3em;
         text-decoration: underline;
     }
-    .fas {
-        font-size: 35px;
+    .gallery {
+        position: relative;
     }
-
-    min-height: -webkit-fill-available;
-    //background: linear-gradient(366deg, white 69%, black 71%);
-    display: flex;
-    height: 150vh;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
+    .autumnWinterText{
+        left: -12.5%;
+        top: 10;
+        bottom: 7%;
+        -webkit-animation: fadeInFromNone 0.5s ease-out;
+        -moz-animation: fadeInFromNone 0.5s ease-out;
+        -o-animation: fadeInFromNone 0.5s ease-out;
+        animation: fadeInFromNone 0.5s ease-out;
+    }
+    .springSummerText{
+        right: -12.5%;
+        top: 10;
+        bottom: 7%;
+    }
+    @media all and (max-width:800px) {
+        .arrows {
+         position: relative;
+         top: -150px;
+         }
+    }
+    .arrows {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .fas {
+            overflow: hidden;
+            cursor: pointer;
+            padding: 25px;
+            font-size: 35px;
+        }
+     }
     .section-body {
         display: flex;
         flex-wrap: wrap;
@@ -269,7 +306,6 @@ section:not(:first) {
         width: 100%;
 
         img {
-            // padding-bottom: $galleryImagePaddingBottom;
             height: $galleryImageHeight;
         }
         .gallery-image-wrapper {
@@ -278,50 +314,15 @@ section:not(:first) {
                 padding-bottom:  $galleryImagePaddingBottom;
             }
         }
-
-        &.arrows {
-            justify-content: center;
-
-            i {
-                cursor: pointer;
-                padding-left: 25px;
-                padding-right: 25px;
-            }
-        }
         .item {
             display:block;
         }
-
-        // @for $i from 0 through 6 {
-        //     &.summer>.gallery:nth-of-type(#{$i}) {
-        //         background: url("../images/summer/#{463 +$i}-home_default.jpg");
-        //         background-size: cover;
-        //         background-position-y: -59px;
-        //     }
-
-        //     &.autumn>.gallery:nth-of-type(#{$i}) {
-        //         background: url("../images/autumn/#{408 +$i}-home_default.jpg");
-        //         background-size: cover;
-        //         background-position-y: -59px;
-        //     }
-
-        //     &.winter>.gallery:nth-of-type(#{$i}) {
-        //         background: url("../images/winter/#{422 +$i}-home_default.jpg");
-        //         background-size: cover;
-        //         background-position-y: -59px;
-        //     }
-
-        //     &.spring>.gallery:nth-of-type(#{$i}) {
-        //         background: url("../images/spring/#{440 +$i}-home_default.jpg");
-        //         background-size: cover;
-        //         background-position-y: -59px;
-        //     }
-        // }
 
         .gallery {
             -webkit-animation-duration: 1s;
             animation-duration: 2s;
             transition: opacity 0.5s ease-in-out;
+            position: relative;
         }
 
     }
@@ -332,14 +333,6 @@ section:not(:first) {
         }
     }
 
-    // .gallery {
-    //     background: url(http://agaobuwie.pl/img/p/4/6/1/461-large_default.jpg);
-    //     background-size: cover;
-    //     background-position-y: -59px;
-
-    //     margin: 3% 0;
-
-    // }
     .lightbox {
         background-color: #001;
         height: 100vh;
@@ -397,10 +390,7 @@ section:not(:first) {
             overflow: hidden;
             height: 190px;
         }
-        .arrows {
-            position: relative;
-            top: -7%;
-        }
+
      
         // .gallery {
         //     overflow: hidden;
@@ -409,7 +399,18 @@ section:not(:first) {
         // }
     }
 }
-
+@media all and (min-width:1700px) {
+    #store-outlet  {
+        height: 120vh;
+        .collection-title {
+            padding-bottom: 0;
+        }
+     }
+     #about-us {
+        height: 70vh;
+        min-height: inherit;
+     }
+}
 #contact {
     display: flex;
     justify-content: flex-start;
