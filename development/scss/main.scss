@@ -4,6 +4,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
@@ -40,11 +42,20 @@ body {
         max-width: 30px;
         max-height: 30px;
         margin-right: 10%;
+        
 
+        // img {
+        //     cursor: pointer;
+        //     max-width: 30px;
+        //     max-height: 30px;
+        //     margin-left: 10px;
+        //     image-rendering: optimizeQuality;
+        // }
         img {
             cursor: pointer;
-            max-width: 30px;
-            max-height: 30px;
+            width: 100%;
+            min-width: 50px;
+            // max-height: 30px;
             margin-left: 10px;
 
         }
@@ -208,6 +219,15 @@ section:not(:first) {
         background-position-x: 50%;
         background-position-y: 50%;
     }
+    img.logo-aga {
+        width: 100%;
+    }
+    .collection-title {
+        span {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
 #about-us {
 
@@ -284,7 +304,20 @@ section:not(:first) {
         .arrows {
          position: relative;
          top: -150px;
+            i {
+                animation-name: swipeHand;
+                animation-duration: 2s;
+                animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+                animation-iteration-count: infinite; 
+            }
+            i:first-of-type:before {
+                content: '\f0a6';
+            }
+            i:last-of-type:before {
+                content: '';
+            }
          }
+         
     }
     .arrows {
         display: flex;

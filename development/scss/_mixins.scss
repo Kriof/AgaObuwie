@@ -18,3 +18,22 @@
     0%   { opacity: 1;  }
     100% { opacity: 0;  }
   }
+  $swipe-distance: 30deg;
+  @keyframes swipeHand {
+    0% { transform: skew(0) ;}
+    // 10% { transform: skew(-($swipe-distance)) ;}
+    25% { transform: skew(($swipe-distance)) ;}
+    // 30% { transform: skew(-($swipe-distance)) ;}
+    50% { transform: skew(0) ;}
+    
+    66% { transform: skew(-($swipe-distance)) ;}
+    // 50% { transform: skew(-($swipe-distance)) ;}
+
+    100% { transform: skew(0) ;}
+    // 10% { @include transform ( skew(-($swipe-distance))) ;}
+    // 20% { @include transform ( skew(($swipe-distance))) ;}
+    // 30% { @include transform ( skew(-($swipe-distance))) ;}
+    // 40% { @include transform ( skew(($swipe-distance))) ;}
+    // 50% { @include transform ( skew(-($swipe-distance))) ;}
+    // 100% { @include transform ( skew(($swipe-distance))) ;}   
+  }

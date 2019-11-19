@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         Jesteśmy w stanie przygotować obuwie dopasowane do wymagań oraz porzeb naszych klientów.
                         Jesteśmy otwarci na nowe wyzwania oraz proponujemy atrakcyjne warunki współpracy.`,
                 `Our main customers are wholesalers, retail chains and internationally recognized footwear brands. We are able to prepare footwear tailored to 
-                the requirements and needs of our customers. We are open to new challenges and we offer attractive terms of cooperation.`,  "Cooperation","Współpraca",
+                the requirements and needs of our customers. We are open to new challenges and we offer attractive terms of cooperation.`, "Cooperation", "Współpraca",
             ],
             history: [`Początki Firmy "AGA" zaczynają się w 1994 roku, gdzie zaczyna się projektowanie oraz produckaj
                         najwyższej jakości obuwia
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 women's high-quality leathers. We use the highest quality components from all over Europe between
                 other Polish, Turkish, Spanish and Italian origin.
                 Our footwear is characterized by comfort of use, diverse designs but above all high
-                production quality.`,  "History", "Historia"
+                production quality.`, "History", "Historia"
             ],
             design: [`Solidne wykonanie oraz przystępna cena produktów, pozwoliły zdobyć naszej marce
             uznanie konsumentów na rynku Polskim oraz Europejskim (Węgry, Czechy, Słowacja, Rosja,
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         var currentArray = localStorage.getItem("currentGalleryCollection") === "summer" ? summerCollectionImagesNames : winterCollectionImagesNames;
         changeGallery(currentArray, 1);
-        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));
     }
 
     function getGalleryImageNames(array, page_number) {
@@ -346,8 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
         gallery.find('.gallery-image-wrapper').each(function () {
             var $this = $(this).find('img')
             $this.fadeOut(10);
-            $this.attr('src', "../images/" + currentGalleryCollection + "/" + galleryImages[i] );
-            
+            $this.attr('src', "../images/" + currentGalleryCollection + "/" + galleryImages[i]);
+
             $this.fadeIn(500);
             if (galleryImages[i]) {
                 var currentImgName = galleryImages[i].replace('.JPG', '');
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $.unblockUI();
         i = 0;
     };
-    
+
     galleryArrowRight.on('click', function (evt) {
         var pageNumber = localStorage.getItem("pageNumber");
         var isSummerGalleryCollection = localStorage.getItem("currentGalleryCollection") === "summer";
@@ -391,10 +391,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     springSummerBtn.on('click', function (evt) {
         setSummerActiveCollection();
-        console.log($(this).attr('id'));
         localStorage.setItem('currentGalleryCollection', 'summer');
         changeGallery(summerCollectionImagesNames, 1);
-        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));
     });
 
     autumnWinterBtn.on('click', function (evt) {
@@ -402,30 +401,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem('currentGalleryCollection', 'winter');
         changeGallery(winterCollectionImagesNames, 1);
-        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));        
+        hideNotActiveCollectionText(localStorage.getItem('currentGalleryCollection'));
     });
     gallery.find('.gallery-image-wrapper').each(function () {
         $(this).on('click', function () {
             var imgSrc = $(this).find('img').attr('src');
-            console.log(imgSrc);
             $('#gallery').append(`   <div class="lightbox">
             <div class="gallery-image-wrapper">
             <i class="fa fa-times closeLightbox" aria-hidden="true"></i>
                 <img class="item" src="${imgSrc}" alt="">
             </div>
         </div>`);
-            $('#store-outlet > div.section-body.arrows > i.fas.fa-arrow-left, #store-outlet > div.section-body.arrows > i.fas.fa-arrow-right').css('opacity',0);
+            $('#store-outlet > div.section-body.arrows > i.fas.fa-arrow-left, #store-outlet > div.section-body.arrows > i.fas.fa-arrow-right').css('opacity', 0);
         });
-        console.log($(this));
 
-        $(document).on('click', '.closeLightbox',function () {
+        $(document).on('click', '.closeLightbox', function () {
             $('.lightbox').remove();
-            $('#store-outlet > div.section-body.arrows > i.fas.fa-arrow-left, #store-outlet > div.section-body.arrows > i.fas.fa-arrow-right').css('opacity',1);
-            
+            $('#store-outlet > div.section-body.arrows > i.fas.fa-arrow-left, #store-outlet > div.section-body.arrows > i.fas.fa-arrow-right').css('opacity', 1);
+
         });
         var lightbox = $('.lightbox');
         lightbox.css('opacity')
     });
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+  
+    var xDown = null;
+    var yDown = null;
+    var lastScrollTop = 0;
+    $(window).scroll(function(event){
+       var st = $(this).scrollTop();
+       if (st > lastScrollTop && st > 3500){
+           
+       } else {
+          // upscroll code
+       }
+       lastScrollTop = st;
+    });
+    function handleTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    };
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            /*most significant*/
+            if (xDiff > 0) {
+                galleryArrowLeft.click();
+            } else {
+                galleryArrowRight.click();
+            }
+        } else {
+            if (yDiff > 0) {
+                /* up swipe */
+            } else {
+                /* down swipe */
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    };
 
     function hideNotActiveCollectionText(collectionType) {
         if (collectionType === "summer") {
